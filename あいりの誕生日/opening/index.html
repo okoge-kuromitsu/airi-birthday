@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>秘密の入り口</title>
+    <meta name="robots" content="noindex">
+    <style>
+        body { text-align: center; padding-top: 100px; font-family: sans-serif; }
+        input { padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #333; color: white; border: none; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+    <h2>パスワードを入力してね</h2>
+    <input type="text" id="passInput" placeholder="パスワードは？">
+    <button onclick="checkPass()">入る</button>
+
+    <script>
+        function checkPass() {
+            const pass = document.getElementById('passInput').value;
+            // ここに好きな合言葉を設定します
+            if (pass === "勇者とその仲間たち") { 
+                location.href = "./main/index.html"; // 合っていたらこのファイルに移動
+            } else {
+                alert("違うよ！");
+            }
+        }
+    </script>
+</body>
+</html>
