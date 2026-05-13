@@ -2,6 +2,25 @@
 
 @charset "UTF-8";
 
+/* すべての要素に対して、パディングやボーダーが幅を突き破らないようにする設定 */
+* {
+  box-sizing: border-box;
+}
+
+/* 画面の横幅を100%に収め、横スクロールが発生しないようにする */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* 画像がスマホの画面からはみ出さないように自動調整する */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 body {
   margin: 0;
   font-size: 20px;
