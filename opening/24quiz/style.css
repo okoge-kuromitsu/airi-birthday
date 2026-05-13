@@ -1,0 +1,136 @@
+@charset "UTF-8";
+
+body {
+    background-image: url(../main/back.png);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+    margin: 0;
+  font-size: 20px;
+  color: #72abff;
+  font-family: "Kiwi Maru", serif;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+
+.quiz-card {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 188, 212, 0.2);
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    border: 2px solid #81d4fa;
+}
+
+.title { color: #0288d1; margin-bottom: 5px; }
+#progress { color: #0277bd; font-size: 0.9rem; margin: 0; }
+
+button {
+    display: block; width: 100%; padding: 12px; margin: 10px 0;
+    border: 2px solid #81d4fa; border-radius: 50px;
+    background: white; color: #0277bd; cursor: pointer;
+    font-size: 1rem; font-weight: bold; transition: 0.3s;
+}
+
+button:hover { background: #81d4fa; color: white; }
+#feedback { font-weight: bold; margin-top: 15px; min-height: 24px; }
+
+/* --- ボタンコンテナ --- */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+/* クラスがついたら表示 */
+.button-container.is-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.icon-button {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    transition: transform 0.3s ease;
+}
+
+.icon-circle {
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(104, 201, 253, 0.5);
+    margin-bottom: 15px;
+    border: 2px solid #ffffff;
+}
+
+.icon-circle img {
+    width: 55px;
+    height: auto;
+}
+
+.icon-button span {
+    display: block;
+    width: 100%;
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+    line-height: 1.4;
+    text-shadow: 0 0 5px rgba(175, 238, 238, 0.8);
+}
+
+.icon-button:hover { transform: scale(1.1); }
+.icon-button:active { transform: scale(0.9); }
+
+/* style.css */
+.button-container {
+    display: none; /* 最初は存在自体を消しておく */
+    justify-content: center;
+    gap: 60px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.5s ease, transform 1.0s ease;
+}
+
+/* JSでこれが追加されたら表示される */
+.button-container.is-visible {
+    display: flex; /* 画面に登場させる */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.inline-heart {
+    width: 1em;          /* 文字と同じサイズにする */
+    height: 1em;         /* 正方形を維持 */
+    vertical-align: middle; /* 文字の高さに合わせる */
+    margin: 0 5px;       /* 左右に少しだけ隙間を作る */
+    object-fit: contain; /* 画像を歪ませない */
+    display: inline-block;
+}
+
+.title {
+    display: flex;
+    align-items: center;    /* 縦方向の真ん中を揃える */
+    justify-content: center; /* タイトルを中央に */
+    gap: 10px;              /* 画像と文字の間隔 */
+}

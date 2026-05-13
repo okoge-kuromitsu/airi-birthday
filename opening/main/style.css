@@ -1,0 +1,239 @@
+@charset "UTF-8";
+
+body {
+  margin: 0;
+  font-size: 20px;
+  color: #dee9fa;
+  font-family: "Kiwi Maru", serif;
+  background-image: url('./back.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+
+/* --- Opening Screen --- */
+#opening {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, #dbe8f3 0%, #ffffff 100%);
+  filter: drop-shadow(0 0 15px rgba(240, 250, 255, 0.5));
+  transition: opacity 1s ease, visibility 1s;
+}
+
+#opening.is-loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.zoom-logo {
+  width: 400px;
+  max-width: 80%;
+  height: auto;
+  animation: logo-zoom 2.5s forwards;
+}
+
+/* --- Header & Logo --- */
+.header-container {
+  display: flex;
+  justify-content: center;
+  height: 200px;
+  margin-top: 50px;
+}
+
+.logo {
+  height: 80%;
+  width: auto;
+  animation: fuwafuwa 3s ease-in-out infinite;
+}
+
+/* --- Text Animations --- */
+.animate-text {
+  font-size: 3.0em;
+  margin-bottom: 30px;
+  opacity: 0;
+  letter-spacing: 0.1em;
+}
+
+.animate-text span {
+  display: inline-block;
+  opacity: 0;
+  animation: char-fade-in 0.5s ease-out forwards;
+}
+
+.neon-text {
+  color: #fff;
+  text-shadow: 0 0 8px rgba(175, 238, 238, 0.8), 0 0 20px rgba(135, 206, 235, 0.5);
+  animation: soft-pulse 4s ease-in-out infinite;
+}
+
+/* --- Main Content --- */
+.main-content {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 2s ease;
+}
+
+.main-content.is-visible {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  height: auto;
+  overflow: visible;
+}
+
+.main-content p, 
+.main-content .content-wrapper {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 4.0s ease, transform 3.0s ease;
+  line-height: 2.5;
+}
+
+/* 共通の表示用クラス */
+.is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* --- Heart Images --- */
+.inline-heart {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    margin-left: 10px;
+    opacity: 0;
+    transition: opacity 1s ease, transform 1s ease;
+    transform: translateY(10px);
+}
+
+.animate-text .inline-heart,
+.is-visible .inline-heart {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* --- Layout Helpers --- */
+.spacer {
+  height: 20vh;
+}
+
+.main-content h2 {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 3.0s ease, transform 2.5s ease;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* --- Button Container (Icons) --- */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 3.0s ease, transform 2.5s ease;
+}
+
+.button-container.is-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* アイコンボタン単体の設定 */
+.icon-button {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;     /* アイコンと文字の軸を中央に揃える */
+    width: 200px;            /* 文字がはみ出さないよう幅を確保 */
+    transition: transform 0.3s ease;
+}
+
+/* 丸いアイコンの背景 */
+.icon-circle {
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(104, 201, 253, 0.5);
+    margin-bottom: 15px;
+    border: 2px solid #ffffff;
+}
+
+.icon-circle img {
+    width: 55px;
+    height: auto;
+}
+
+/* アイコンの下の文字 */
+.icon-button span {
+    display: block;
+    width: 100%;
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;      /* 文字そのものをセンター寄せ */
+    line-height: 1.4;
+    text-shadow: 0 0 5px rgba(175, 238, 238, 0.8);
+}
+
+.icon-button:hover {
+    transform: scale(1.1);
+}
+
+.icon-button:active {
+    transform: scale(0.9);
+}
+
+/* --- Animations (Keyframes) --- */
+@keyframes logo-zoom {
+  0%   { transform: scale(1.8); opacity: 0; }
+  30%  { transform: scale(2.5); opacity: 1; }
+  80%  { transform: scale(1.9); opacity: 1; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+@keyframes fuwafuwa {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-20px); }
+}
+
+@keyframes char-fade-in {
+  0%   { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0);    opacity: 1; }
+}
+
+@keyframes soft-pulse {
+  0%, 100% {
+    text-shadow: 0 0 8px rgba(175, 238, 238, 0.8), 0 0 20px rgba(135, 206, 235, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 0 0 12px rgba(175, 238, 238, 0.9), 0 0 30px rgba(135, 206, 235, 0.6);
+    transform: scale(1.02);
+  }
+}
