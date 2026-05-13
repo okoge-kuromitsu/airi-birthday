@@ -1,0 +1,189 @@
+/* --- 全体設定 --- */
+
+@charset "UTF-8";
+
+body {
+  margin: 0;
+  font-size: 20px;
+  color: #dee9fa;
+  font-family: "Kiwi Maru", serif;
+  background-image: url('../main/back.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+
+/* --- カードグリッド（整理後） --- */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: auto;
+    gap: 30px 20px; 
+    justify-items: center;
+    max-width: 600px; 
+    margin: 50px auto; 
+    padding: 20px;
+}
+
+@media (max-width: 480px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr); /* スマホは2列 */
+    }
+}
+
+/* --- カード本体 --- */
+.card-container {
+    width: 150px;
+    height: 200px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card.is-flipped {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.card-back {
+    background-color: #ffffff;
+    color: #56b6ff; /* 裏側の文字色を読みやすく修正 */
+    transform: rotateY(180deg);
+    font-weight: bold;
+    font-size: 10px;
+    text-align: center;
+    border: 2px solid #e1fdff;
+    /* 縦に並べるための設定 */
+    display: flex;
+    flex-direction: column;   /* 上から下へ並べる */
+    justify-content: center; /* 上詰めで配置（中央が良ければ center） */
+    align-items: flex-start;  /* 左寄せにする */
+    
+    padding: 20px 15px;      /* 内側に少し余白を作る */
+    text-align: left;         /* 文字を左寄せ */
+    overflow-y: auto;         /* 文字が多い場合にスクロールできるようにする */
+}
+
+/* 箇条書きの各項目（pタグ）の設定 */
+.card-back p {
+    margin: 5px 0;           /* 上下の隙間 */
+    font-size: 12px;         /* 文字サイズ（24枚並ぶなら少し小さめが◎） */
+    line-height: 1.4;
+    width: 100%;             /* 横幅いっぱい使う */
+    border-bottom: 1px dotted #e1fdff; /* 項目間に点線を入れると箇条書きっぽい */
+    padding-bottom: 3px;
+}
+
+
+/* --- タイトルとテキスト --- */
+h1 {
+    color: #f7faff;
+    text-shadow: 0 0 8px rgba(175, 238, 238, 0.8), 0 0 20px rgba(135, 206, 235, 0.5);
+    /* animationを使う場合は @keyframes の定義も必要です */
+}
+
+p {
+    color: #56b6ff;
+}
+
+/* --- ボタンコンテナ --- */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+/* クラスがついたら表示 */
+.button-container.is-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.icon-button {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    transition: transform 0.3s ease;
+}
+
+.icon-circle {
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(104, 201, 253, 0.5);
+    margin-bottom: 15px;
+    border: 2px solid #ffffff;
+}
+
+.icon-circle img {
+    width: 55px;
+    height: auto;
+}
+
+.icon-button span {
+    display: block;
+    width: 100%;
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+    line-height: 1.4;
+    text-shadow: 0 0 5px rgba(175, 238, 238, 0.8);
+}
+
+.icon-button:hover { transform: scale(1.1); }
+.icon-button:active { transform: scale(0.9); }
+
+.itsuki{
+    color: orange;
+}
+
+.ayako{
+    color: pink;
+}
+
+.kanon{
+    color: palevioletred;
+}

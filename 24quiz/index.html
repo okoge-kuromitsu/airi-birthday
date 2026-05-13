@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>あいりクイズ 24問</title>
+</head>
+<body>
+    <div class="quiz-card">
+    <h1 class="title"><img src="../main/heart.png" class="inline-heart" alt="heart">あいりクイズ <img src="../main/heart.png" class="inline-heart" alt="heart"></h1>
+    <div id="start-screen">
+        <p>あなたの名前を選んでね<br>※クイズの内容が変わります</p>
+        <button onclick="startQuiz('itsuki')">いつき</button>
+        <button onclick="startQuiz('ayako')">あやこ</button>
+        <button onclick="startQuiz('kanonn')">かのん</button>
+        </div>
+
+        <div id="quiz-area" style="display:none;">
+        <p id="progress"></p>
+        <hr>
+        <p id="question"></p>
+        <div id="choices"></div>
+        <p id="feedback"></p>
+        </div>
+    </div>
+
+<div id="final-links" class="button-container" style="display: none;">
+    <a href="../main/index.html" class="icon-button">
+        <div class="icon-circle">
+            <img src="../main/heart.png" alt="heart">
+        </div>
+        <span>メインページ</span>
+    </a>
+
+    <a href="../24good/index.html" class="icon-button">
+        <div class="icon-circle">
+            <img src="../main/heart.png" alt="heart">
+        </div>
+        <span>あいりのいいところ24選</span>
+    </a>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
