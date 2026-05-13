@@ -21,7 +21,8 @@ img {
 
 body {
   margin: 0;
-  font-size: 20px;
+  padding: 0 20px; /* ★左右に20pxの余白を追加して、文字が端に付かないようにする */
+  font-size: 16px; /* ★スマホ標準の16px前後に下げると収まりが良くなります */
   color: #dee9fa;
   font-family: "Kiwi Maru", serif;
   background-image: url('./back.png');
@@ -34,6 +35,19 @@ body {
   min-height: 100vh;
   text-align: center;
   letter-spacing: 0.1em;
+  
+  /* ★追加：見切れ・横揺れ防止 */
+  width: 100%;
+  box-sizing: border-box; 
+  overflow-x: hidden; 
+}
+
+/* ★パソコンで見るときだけ、文字を元のサイズに戻す設定 */
+@media screen and (min-width: 768px) {
+  body {
+    font-size: 20px;
+    padding: 0;
+  }
 }
 
 /* --- Opening Screen --- */
